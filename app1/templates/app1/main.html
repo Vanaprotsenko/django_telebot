@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 200px;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            border:1px solid #8c8c8c;
+            padding: 15px 15px;
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    </style>
+    
+    <main>
+       {% csrf_token %}
+        <div class="content">
+            <form method="POST">
+                <div class="inputs">
+                    
+                    <label for="income">Приход:</label>
+                    <input type="number" name="income" id="income"><br>
+                    <label for="expense">Убыток:</label>
+                    <input type="number" name="expense" id="expense"><br>
+                    <button type="submit">Добавить запись</button>
+                </div>    
+            
+                
+                
+            
+            <div class="info">
+                <h2>Total sum:</h2>
+                <p>Income: {{ total_income }}</p>
+                <p>Expense: {{ total_expense }}</p>
+                <p>Total: {{ monthly_profit }}</p>
+            </div>
+               
+            </form>
+
+        </div>
+
+
+
+        
+        
+    </main>
+</body>
+</html>
